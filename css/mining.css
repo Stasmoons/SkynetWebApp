@@ -1,0 +1,110 @@
+.mining {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr 1fr 5fr;
+    gap: 2vh;
+    padding: 2vmax;
+    z-index: 110;
+    position: fixed;
+    background-color: black;
+}
+
+
+/* Верхняя панель */
+.mining__top-panel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mining__header {
+    color: white;
+}
+
+.mining__close-button {
+    background-color: red;
+    border: none;
+    outline: none;
+    border-radius: 10%;
+    width: 5vmax;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+}
+.mining__close-button img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.mining__process-display-container {
+    overflow: hidden;
+}
+
+.mining__process-display {
+    display: flex;
+    flex-direction: column-reverse;  /* Новые элементы добавляются сверху */
+    overflow-y: auto;  /* Включаем вертикальный скролл */
+    background-color: black;
+}
+
+.mining__process-display p {
+    -webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+    color: #5ec969;
+    font-family: "Courier New", monospace;
+    white-space: nowrap;  /* Отключаем перенос строк */
+    text-overflow: ellipsis;  /* Добавляем многоточие, если строка слишком длинная */
+    overflow: hidden;  /* Скрываем текст, который не помещается */
+    font-size: 1.8vmax;
+}
+
+/* Скрываем скроллбар */
+.mining__process-display::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Старт / пауза */
+.mining__status-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mining__status-button {
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 1vmax;
+    padding: 2vmax 0;
+    width: 30%;
+    font-weight: 1000;
+    transition: transform 50ms ease-out;
+}
+.mining__status-button:active {
+    transform: scale(0.97);
+}
+
+.mining__start-button {
+    background-color: #e50305;
+}
+
+.mining__stop-button {
+    background-color: #6015ec;
+}
+
+
+/* Результаты */
+.mining__status {
+    padding-top: 3vmax;
+    color: white;
+    text-align: center;
+}

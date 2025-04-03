@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sections-nav.css">
+  <link rel="stylesheet" href="css/select-blockchain.css">
+  <link rel="stylesheet" href="css/mining.css">
+  <link rel="stylesheet" href="css/seed.css">
+  <link rel="stylesheet" href="css/support.css">
+  <link rel="stylesheet" href="css/statistics.css">
+
+  <title>Skynet Coin</title>
+</head>
+
+<body id="body">
+    <div class="background"></div>
+
+    <!-- МАЙНИНГ -->
+    <section id="miningSection" class="mining section-inactive">
+        <div class="mining__top-panel">
+            <h1 class="mining__header">Wallet search</h1>
+            <button id="miningCloseButton" class="mining__close-button">
+                <img src="static/icons/close_white.png"/>
+            </button>
+        </div>
+                        
+        <div class="mining__process-display-container">
+            <div id="miningProcessDisplay" class="mining__process-display"></div>
+        </div>
+
+        <div class="mining__status-buttons">
+            <button id="startMiningButton" class="mining__status-button mining__start-button">START</button>
+            <button id="stopMiningButton" class="mining__status-button mining__stop-button">STOP</button>
+        </div>
+
+        <div class="mining__status">
+            Total inspection: <span id="totalInpectionNumber" class="editable">0</span> 
+            [Found: <span id="foundWalletsCount" class="editable">0</span>] 
+            ≈ <span id="foundSumm" class="editable">0.0</span>$
+        </div>
+    </section>
+
+    <!-- ОКНО СИД ФРАЗЫ -->
+    <section id="seedPhraseWindow" class="popup seed__container popup-hidden">
+        <div class="seed__wrapper popup__wrapper">
+            <h2>Seed phrase</h2>
+            <div class="popup__content seed__words-container">
+                <p class="seed__word"></p> <p class="seed__word"></p>
+                <p class="seed__word"></p> <p class="seed__word"></p>
+                <p class="seed__word"></p> <p class="seed__word"></p>
+                <p class="seed__word"></p> <p class="seed__word"></p> 
+                <p class="seed__word"></p> <p class="seed__word"></p>
+                <p class="seed__word"></p> <p class="seed__word"></p>
+            </div>
+            <button class="popup__close-button">OK</button>
+        </div>
+    </section>
+
+    <!-- ОКНО ОШИБКИ ВЫВОДА -->
+    <section id="withdrawErrorWindow" class="popup popup-hidden">
+        <div class="popup__wrapper">
+            <div class="popup__content">
+                <h2>❌ Technical error!</h2>
+                <p>To solve the problem, please contact support - <a href="https://t.me/coinskynet_support">@coinskynet_support</a></p>
+            </div>
+            <button class="popup__close-button">OK</button>
+        </div>
+    </section>
+
+    <!-- ОКНО 0й баланс -->
+    <section id="zeroBalanceErrorWindow" class="popup popup-hidden">
+        <div class="popup__wrapper">
+            <div class="popup__content">
+                <h2>❌Your balance is 0!</h2>
+                <p>To make a withdrawal, find at least one wallet.</p>
+            </div>
+            <button class="popup__close-button">OK</button>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <section class="sections-container">
+
+            <!-- ВЫБОР БЛОКЧЕЙНА -->
+            <section section-name="search" class="section select-blockchain section-inactive">
+                <h2 class="select-blockchain__header">Select a blockchain</h2>
+                
+                <div class="coins-container">
+                    <label class="coin-option">
+                        <input type="radio" name="crypto" class="coin" value="btc">
+                        <img src="static/coins/btc.png" alt="Bitcoin">
+                    </label>
+                    
+                    <label class="coin-option">
+                        <input type="radio" name="crypto" class="coin" value="eth">
+                        <img src="static/coins/eth.jpg" alt="Ethereum">
+                    </label>
+                    
+                    <label class="coin-option">
+                        <input type="radio" name="crypto" class="coin" value="bnb">
+                        <img src="static/coins/bnb.jpg" alt="BNB">
+                    </label>
+                </div>
+
+                <button id="miningButton" class="start-mining-button button-hidden">START</button>
+            </section>
+
+            <!-- СТАТИСТИКА -->
+            <section section-name="statistics" class="section statistics-section section-inactive">
+                <h2 class="statistics__header">Blockchain</h2>
+                <h2 class="statistics__subheader">Statistics on a specific blockchain</h2>
+
+                <div class="statistics__coins">
+                    <div class="statistics__coin">
+                        <div>
+                            <span class="statistics__coin-balance editable">0$</span>
+                            <span class="statistics__coin-name">btc</span>
+                        </div>
+                    </div>
+                    <div class="statistics__coin">
+                        <div>
+                            <span class="statistics__coin-balance editable">0$</span>
+                            <span class="statistics__coin-name">eth</span>
+                        </div>
+                    </div>
+                    <div class="statistics__coin">
+                        <div>
+                            <span class="statistics__coin-balance editable">0$</span>
+                            <span class="statistics__coin-name">bnb</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="statistics__header">Dashboard</h2>
+                <h2 class="statistics__subheader">Statistics on blochchain discovered</h2>
+                <div class="statistics__balance">
+                    <div class="statistics__balance-period">
+                        <p class="statistics__balance-amount editable"></p>
+                        <p class="statistics__balance-period-name">in all time</p>
+                    </div>
+
+                    <div class="statistics__balance-period">
+                        <p class="statistics__balance-amount editable"></p>
+                        <p class="statistics__balance-period-name">recently</p>
+                    </div>
+                </div>
+
+                <button id="withdrawButton" class="statistics__withdraw-button">WITHDRAW</button>
+            </section>
+
+            <!-- НАСТРОЙКИ -->
+            <section section-name="settings" class="section settings-section section-inactive">
+                <h2 class="settings__header">Settings</h2>
+            </section>
+
+            <!-- ПОДДЕРЖКА -->
+            <section section-name="support" class="section support-section section-inactive">
+                <h2 class="support__header">Support</h2>
+                <div class="support__contacts">
+                    <a class="support__contact" href="https://t.me/SkynetSoftWare">
+                        <img src="static/icons/tg.png"/> Telegram Channel
+                    </a>
+                    <a class="support__contact" href="https://t.me/coinskynet_support">
+                        <div><img src="static/icons/support_white.png"/></div> Support
+                    </a>
+                </div>
+            </section>
+        </section>
+
+        <!-- Навигация по секциям -->
+        <section class="sections-nav">
+            <nav class="sections-nav__container">
+                <button section-name="search" class="sections-nav__button">
+                    <img class="sections-nav__button-icon" src="static/icons/search_white.png"/>
+                </button>
+
+                <button section-name="statistics" class="sections-nav__button">
+                    <img class="sections-nav__button-icon" src="static/icons/graph_white.png"/>
+                </button>
+
+                <!-- <button section-name="settings" class="sections-nav__button">
+                    <img class="sections-nav__button-icon" src="static/icons/settings_white.png"/>
+                </button> -->
+
+                <button section-name="support" class="sections-nav__button">
+                    <img class="sections-nav__button-icon" src="static/icons/support_white.png"/>
+                </button>
+            </nav>
+        </section>
+    </main>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/seed_words.js"></script>
+  <script src="js/mining_stats.js"></script>
+  <script src="js/stats_display.js"></script>
+  <script src="js/mining.js"></script>
+  <script src="js/select-blockchain.js"></script>
+  <script src="js/sections-nav.js"></script>
+  <script src="js/withdraw.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

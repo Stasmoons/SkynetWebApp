@@ -1,0 +1,47 @@
+.support-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    gap: 20vh;
+    padding-top: 2vh;
+}
+
+
+.support__header {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 3.5vmax;
+}
+
+
+.support__contacts {
+    border-radius: 1vmax;
+    background-color: #142050;
+    padding: 10vh 8vh;
+    gap: 6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.support__contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    font-weight: bold;
+    font-size: 2.8vh;
+    color: #8484ff;
+}
+
+.support__contact:visited {
+    color: #8484ff;
+}
+
+.support__contact img {
+    width: 4vmax;
+    aspect-ratio: 1;
+}

@@ -1,0 +1,73 @@
+.select-blockchain {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5vh;
+    padding-top: 2vh;
+}
+
+.select-blockchain__header {
+    color: white;
+    text-align: center;
+    font-size: 3.5vmax;
+}
+
+.coins-container {
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 3vw;
+}
+
+.coin {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.coin-option {
+    display: flex;
+    justify-content: center; /* Выравнивание по центру */
+    aspect-ratio: 1;
+    height: 100%;
+    max-width: 200px;
+    max-height: 40vh;
+}
+
+.coin + img {
+    cursor: pointer; /* Курсор-указатель при наведении */
+    transition: transform 0.2s, box-shadow 0.2s; /* Плавные эффекты */
+    width: 100%; /* Размер как в вашем коде */
+    aspect-ratio: 1;
+    border-radius: 2vmax;
+    object-fit: cover;
+}
+
+/* Стиль для выбранной картинки */
+.coin:checked + img {
+    transform: scale(1.05); /* Лёгкое увеличение */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Свечение */
+    border: 2px solid white; /* Рамка */
+}
+
+
+.start-mining-button {
+    background-color: #3051d5;
+    padding: 2vh;
+    width: 60%;
+    font-weight: 800;
+    font-size: 2vmax;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 1vmax;
+    transition: opacity 0.2s ease-out, transform 0.1s ease-out; 
+}
+
+.start-mining-button:active {
+    transform: scale(98%);
+}

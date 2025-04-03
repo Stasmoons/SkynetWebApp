@@ -1,0 +1,84 @@
+.statistics-section {
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+
+.statistics__subheader {
+    font-size: 0.9em;
+    margin-bottom: 1vh;
+}
+
+.statistics__coins, .statistics__balance {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 1vmax;
+    margin-bottom: 4vh;
+}
+
+
+.statistics__coins {
+    width: 100%;
+}
+
+.statistics__coin {
+    border-radius: 0.5vmax;
+    padding: 3vh 2%;
+    font-weight: 1000;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #3051d5;
+}
+.statistics__coin:last-child:nth-child(odd) {
+    grid-column: span 2; /* Занимает две колонки */
+}
+
+.statistics__coin-balance {
+    font-size: 3vmax;
+}
+
+
+.statistics__balance {
+    font-weight: 800;
+}
+
+.statistics__balance-period {
+    width: 100%;
+    height: 100%;
+    padding: 2vh 0;
+    background-color: #00abe5;
+    border-radius: 0.5vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.statistics__balance-amount {
+    font-size: 3.5vmax;
+}
+.statistics__balance-period-name {
+    font-size: 2vmax;
+}
+
+
+.statistics__withdraw-button {
+    background-color: #00abe5;
+    padding: 2vh 0;
+    border-radius: 6vmax;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: 1000;
+    font-size: 3vmax;
+    transition: transform 0.1s ease-out;
+}
+.statistics__withdraw-button:active {
+    transform: scale(0.98)
+}
