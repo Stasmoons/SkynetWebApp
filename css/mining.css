@@ -47,7 +47,6 @@
 .mining__process-display {
     display: flex;
     flex-direction: column-reverse;  /* Новые элементы добавляются сверху */
-    overflow-y: auto;  /* Включаем вертикальный скролл */
     background-color: black;
 }
 
