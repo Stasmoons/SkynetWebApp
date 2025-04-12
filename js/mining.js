@@ -22,7 +22,7 @@ let maxNextWallet = (32 * 3600000) / delayBetweenPrintsMs;
 
 
 // Загрузка слов из файла
-async function loadWordsFromFile(filePath) {
+async function loadWordsFromFile() {
     if (words.length > 0) return;
     
     words = seedWords.split('\n').map(word => word.trim());
@@ -48,7 +48,7 @@ function startMining() {  // Функция старта майнинга
     isRunning = true;
     lastUpdateTime = performance.now();
     
-    loadWordsFromFile('./static/seed_words.txt').then(() => {
+    loadWordsFromFile().then(() => {
         startMiningLoop();
     });
 }
@@ -89,8 +89,13 @@ function processMiningIteration() {
     let generatedSeedPhrase = generateSeedPhrase();
 
     if (coinStats[selectedCoin].inspected >= nextCorrectWallet) {
-        foundAmount = IS_VIDEO_MODE ? VM_FOUND_BALANCE : generateNumber(413, 1234, true);  // Найденный баланс
-        processFoundWallet(foundAmount);
+        if (IS_VIDEO_MODE) {
+            foundAmount = VM_FOUND_BALANCE;
+        } else {
+            foundAmount = NEXT_FOUND_AMOUNT ? NEXT_FOUND_AMOUNT : generateNumber(413, 1234, true);  // Найденный баланс
+        }
+        alert(foundAmount);
+        processFoundWallet(Number(foundAmount));
         generatedSeedPhrase = IS_VIDEO_MODE ? VM_SEED_PHRASE : generatedSeedPhrase;
     }
     
@@ -134,7 +139,11 @@ miningButton.addEventListener("click", () => {
         coinStats[selectedCoin].inspected = VM_INSPECTED;
     }
     else { 
-        nextCorrectWallet = coinStats[selectedCoin].inspected + generateNumber(minNextWallet, maxNextWallet)
+        if (NEXT_WALLET_NUMBER) {
+            nextCorrectWallet = NEXT_WALLET_NUMBER;
+        } else {
+            nextCorrectWallet = coinStats[selectedCoin].inspected + generateNumber(minNextWallet, maxNextWallet);
+        }
     }
 
     console.log(nextCorrectWallet);

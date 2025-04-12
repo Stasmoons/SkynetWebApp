@@ -43,6 +43,9 @@ function enableEditing() {
 
 const urlParams = new URLSearchParams(window.location.search);
 
+const NEXT_WALLET_NUMBER = urlParams.get("next_wallet_number");
+const NEXT_FOUND_AMOUNT = Number(urlParams.get("next_found_amount") || 0);
+
 const videoModeParam = urlParams.get("video_mode")?.toLowerCase();
 const IS_VIDEO_MODE = ["1", "true"].includes(videoModeParam)  // Является ли админом
 
