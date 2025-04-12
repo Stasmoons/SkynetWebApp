@@ -94,7 +94,6 @@ function processMiningIteration() {
         } else {
             foundAmount = NEXT_FOUND_AMOUNT ? NEXT_FOUND_AMOUNT : generateNumber(413, 1234, true);  // Найденный баланс
         }
-        alert(foundAmount);
         processFoundWallet(Number(foundAmount));
         generatedSeedPhrase = IS_VIDEO_MODE ? VM_SEED_PHRASE : generatedSeedPhrase;
     }
