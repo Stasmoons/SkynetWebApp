@@ -88,7 +88,7 @@ function processMiningIteration() {
     let foundAmount = 0;
     let generatedSeedPhrase = generateSeedPhrase();
 
-    if (coinStats[selectedCoin].inspected >= nextCorrectWallet) {
+    if (coinStats[selectedCoin].inspected === nextCorrectWallet) {
         if (IS_VIDEO_MODE) {
             foundAmount = VM_FOUND_BALANCE;
         } else {
